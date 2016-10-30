@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Submit a Parking Report</string>
+    <string name="report_button">Submit Report</string>
+    <string-array name="spinner">
+        <item>Parking Structure Bld 106</item>
+        <item>Lot B</item>
+        <item>Lot E1</item>
+        <item>Lot E2</item>
+        <item>Lot F1</item>
+        <item>Lot F3</item>
+        <item>Lot F5</item>
+        <item>Lot F8</item>
+        <item>Lot F9</item>
+        <item>Lot F10</item>
+        <item>Lot H</item>
+        <item>Lot I</item>
+        <item>Lot J</item>
+        <item>Lot M</item>
+        <item>Lot N</item>
+        <item>Paved Overflow Lot</item>
+        <item>Parking Structure 2</item>
+        <item>Lot Q</item>
+        <item>Lot R</item>
+        <item>Lot U</item>
+        <item>Unpaved Overflow Lot</item>
+    </string-array>
+</resources>
