@@ -34,10 +34,10 @@ public class UsageGraph extends AppCompatActivity {
         barChart = (BarChart) findViewById(R.id.bar_graph);
 
         // Y-axis data
-        ArrayList<BarEntry> yEntries = new ArrayList<BarEntry>();
+        ArrayList<BarEntry> yEntries = new ArrayList<>();
 
         // X-axis data
-        ArrayList<String> parkingLotNames = new ArrayList<String>();
+        ArrayList<String> parkingLotNames = new ArrayList<>();
 
         GetLotsByCapacityForGraph getLots = new GetLotsByCapacityForGraph();
         getLots.execute();
@@ -71,9 +71,7 @@ public class UsageGraph extends AppCompatActivity {
         BarData data = new BarData(parkingLotNames,barDataSet);
         barChart.setData(data);
         barChart.getXAxis().setLabelsToSkip(0);
-        barChart.getXAxis().setLabelRotationAngle(90);
-        barChart.getXAxis().setPosition(barChart.getXAxis().getPosition().BOTTOM);
-
+        barChart.getXAxis().setLabelRotationAngle(-90);
 
         // Button to go to map page
         Button go_to_map_from_graph = (Button)findViewById(R.id.go_to_map_from_graph_page);
