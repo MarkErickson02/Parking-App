@@ -69,69 +69,13 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <RadioGroup
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentStart="false"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignTop="@+id/emptyRadioButton"
-        android:layout_above="@+id/button_send_report"
-        android:id="@+id/parkingAvailabilityRadioGroup"
-        android:addStatesFromChildren="true"
-        android:layout_toStartOf="@+id/button_send_report" />
-    <RadioButton
-        android:text="@string/empty_radio_button"
-        android:textSize="20sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/emptyRadioButton" />
-
-    <RadioButton
-        android:text="@string/full_radio_button"
-        android:textSize="20sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mostlyFullRadioButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="12dp"
-        android:id="@+id/fullRadioButton" />
-
-    <RadioButton
-        android:text="@string/mostly_empty_radio_button"
-        android:textSize="20sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:id="@+id/mostlyEmptyRadioButton"
-        android:layout_below="@+id/emptyRadioButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <RadioButton
-        android:text="@string/mostly_full_radio_button"
-        android:textSize="20sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:id="@+id/mostlyFullRadioButton"
-        android:layout_below="@+id/mostlyEmptyRadioButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
     <Button
         android:text="@string/go_to_map"
         android:textSize="12sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/go_to_map"
-        android:onClick="goToMaps"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/emptyRadioButton"
-        android:layout_alignEnd="@+id/emptyRadioButton" />
+        android:layout_alignParentBottom="true" />
 
     <Button
         android:text="@string/go_to_graph_from_report"
@@ -142,7 +86,8 @@
         android:layout_alignBaseline="@+id/button_send_report"
         android:layout_alignBottom="@+id/button_send_report"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        tools:ignore="RelativeOverlap" />
 
     <Button
         android:text="@string/button_send_report"
@@ -150,8 +95,52 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button_send_report"
-        android:onClick="sendMessage"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/parkingAvailabilityRadioGroup"
+        android:addStatesFromChildren="true"
+        android:layout_below="@+id/parking_availability"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+    <RadioButton
+        android:text="@string/empty_radio_button"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/emptyRadioButton"
+        android:onClick="onRadioButtonClicked"/>
+
+    <RadioButton
+        android:text="@string/full_radio_button"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:id="@+id/fullRadioButton"
+        android:onClick="onRadioButtonClicked"/>
+
+    <RadioButton
+        android:text="@string/mostly_empty_radio_button"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:id="@+id/mostlyEmptyRadioButton"
+        android:onClick="onRadioButtonClicked"/>
+
+    <RadioButton
+        android:text="@string/mostly_full_radio_button"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:id="@+id/mostlyFullRadioButton"
+        android:onClick="onRadioButtonClicked"/>
+    </RadioGroup>
 
 </RelativeLayout>

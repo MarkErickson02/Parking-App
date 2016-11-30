@@ -7,25 +7,23 @@
     <string name="location_text">Location</string>
     <string name="go_to_map">Go to Map</string>
     <string-array name="parking_lots">
-        <item>Parking Structure Bld 106</item>
+        <item>Parking Structure</item>
         <item>Lot B</item>
         <item>Lot E1</item>
         <item>Lot E2</item>
         <item>Lot F1</item>
+        <item>Lot F2</item>
         <item>Lot F3</item>
+        <item>Lot F4</item>
         <item>Lot F5</item>
         <item>Lot F8</item>
         <item>Lot F9</item>
         <item>Lot F10</item>
         <item>Lot H</item>
-        <item>Lot I</item>
         <item>Lot J</item>
         <item>Lot M</item>
-        <item>Lot N</item>
         <item>Paved Overflow Lot</item>
         <item>Parking Structure 2</item>
-        <item>Lot Q</item>
-        <item>Lot R</item>
         <item>Lot U</item>
         <item>Unpaved Overflow Lot</item>
     </string-array>

@@ -28,10 +28,13 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/go_to_report_from_graph_page" />
-    <com.jjoe64.graphview.GraphView
+        android:id="@+id/go_to_report_from_graph_page"
+        tools:ignore="RelativeOverlap" />
+
+    <com.github.mikephil.charting.charts.BarChart
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/usage_graph"
+        android:id="@+id/bar_graph"
         android:layout_above="@+id/go_to_map_from_graph_page" />
+
 </RelativeLayout>
