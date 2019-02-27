@@ -54,7 +54,7 @@ public class Google_Maps_Page extends FragmentActivity implements OnMapReadyCall
         LatLng cppLibrary = new LatLng(34.05788, -117.82152);
         mMap.addMarker(new MarkerOptions().position(cppLibrary).title("CPP"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(cppLibrary));
-        mMap.setMinZoomPreference(15);
+        mMap.setMinZoomPreference(14);
 
         GetLotsByCapacity getLots = new GetLotsByCapacity();
         getLots.execute();
@@ -63,6 +63,7 @@ public class Google_Maps_Page extends FragmentActivity implements OnMapReadyCall
             Log.d("Test",answer.toString());
             for(int i=0;i<answer.length();i++){
                 JSONObject lot = (JSONObject) answer.get(i);
+                Log.d("Test",lot.getString("name") + " is " + lot.getString("capacityLevel"));
                 switch (lot.getString("name")){
                     case "Parking Structure":
                         Polygon parkingStructure = mMap.addPolygon(new PolygonOptions().add(new LatLng(34.06119924460931,-117.8162111310238), new LatLng(34.06078343393973,-117.8155745788827), new LatLng(34.06000300990652,-117.8165887758576), new LatLng(34.05964876789193,-117.8179997921154), new LatLng(34.06027968678693,-117.8181627408553), new LatLng(34.06038907375445,-117.8176711440814), new LatLng(34.06048659839711,-117.8172402357672), new LatLng(34.06066563351202,-117.8168629013882), new LatLng(34.06119924460931,-117.8162111310238)));
@@ -303,13 +304,14 @@ public class Google_Maps_Page extends FragmentActivity implements OnMapReadyCall
 
     public void colorPolygons(Polygon drawLot, JSONObject lotName){
         try {
+            Log.d("Test",lotName.getString("name")+ " is " + lotName.getString("capacityLevel"));
             switch (lotName.getString("capacityLevel")) {
                 case "full":
                     drawLot.setFillColor(Color.RED);
                     drawLot.setStrokeColor(Color.RED);
                     drawLot.setStrokeWidth(1);
                     break;
-                case "mostFull":
+                case "mostlyFull":
                     drawLot.setFillColor(Color.YELLOW);
                     drawLot.setStrokeColor(Color.YELLOW);
                     drawLot.setStrokeWidth(1);
@@ -324,6 +326,11 @@ public class Google_Maps_Page extends FragmentActivity implements OnMapReadyCall
                     drawLot.setStrokeColor(Color.WHITE);
                     drawLot.setStrokeWidth(1);
                     break;
+                default:
+                    drawLot.setFillColor(Color.BLACK);
+                    drawLot.setStrokeColor(Color.BLACK);
+                    drawLot.setStrokeWidth(1);
+                    break;
             }
         }
         catch (Exception e){
@@ -332,6 +339,9 @@ public class Google_Maps_Page extends FragmentActivity implements OnMapReadyCall
     }
 }
 
+/** GetLotsByCapacity class creates a get request to the server and returns a JSON object.
+ *
+ */
 class GetLotsByCapacity extends AsyncTask<Void, Void, JSONArray>{
 
     @Override

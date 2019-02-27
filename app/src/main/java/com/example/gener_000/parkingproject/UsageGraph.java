@@ -9,11 +9,10 @@ import android.view.View;
 import android.widget.Button;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.LineGraphSeries;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -69,9 +68,15 @@ public class UsageGraph extends AppCompatActivity {
         }
         BarDataSet barDataSet = new BarDataSet(yEntries, "Lot Capacity");
         BarData data = new BarData(parkingLotNames,barDataSet);
+
         barChart.setData(data);
         barChart.getXAxis().setLabelsToSkip(0);
-        barChart.getXAxis().setLabelRotationAngle(-90);
+        barChart.getXAxis().setLabelRotationAngle(90);
+        barChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+        barChart.getLegend().setEnabled(false);
+        barChart.getXAxis().setDrawGridLines(false);
+        barChart.getAxisLeft().setDrawGridLines(false);
+        barChart.getAxisRight().setDrawGridLines(false);
 
         // Button to go to map page
         Button go_to_map_from_graph = (Button)findViewById(R.id.go_to_map_from_graph_page);
@@ -92,6 +97,10 @@ public class UsageGraph extends AppCompatActivity {
         });
     }
 }
+
+/** GetLotsByCapacityForGraph makes a get request to the server and retreives a JSON object.
+ *
+ */
 class GetLotsByCapacityForGraph extends AsyncTask<Void, Void, JSONArray> {
 
     @Override

@@ -200,6 +200,10 @@ public class MainActivity extends AppCompatActivity {
         client.disconnect();
     }
 }
+
+/** RefreshTableWorker calls the server and sees if the data has been refreshed since it was last opened.
+ *
+ */
 class RefreshTableWorker extends AsyncTask<Void, Void, String>{
 
     @Override
